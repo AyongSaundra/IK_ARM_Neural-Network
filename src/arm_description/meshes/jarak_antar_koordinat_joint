@@ -1,0 +1,31 @@
+Base to link1 
+dx : 0m
+dy : 0m
+dz : 0,1m
+
+link1 to link2 
+dx : 0
+dy : 0
+dz : 0,1m
+
+link2 to link3 
+dx : 0m
+dy : -0,06m
+dz : 0,36m
+
+link3 to link4 
+dx : 0m
+dy : 0m
+dz : 0,45m
+
+link4 to link5&6 
+dx : 0m
+dy : 0m
+dz : 0,45m
+
+link5&6 to End Effector
+dx : 0m
+dy : 0m
+dz : 0m
+
+-0.011072

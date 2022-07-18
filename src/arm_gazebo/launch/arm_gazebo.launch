@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<launch>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find gazebo_ros)/world/empty.world"/>
+        <arg name="gui" value="true"/>
+        <arg name="paused" value="true"/>
+    </include>
+    
+    <param name="robot_description" command="$(find xacro)/xacro '$(find arm_description)/urdf/arm.xacro'"/>
+
+    <node pkg="gazebo_ros" type="spawn_model" name="urdf_spawner" respawn="false" output="screen" args="-urdf -model arm -z 0.0 -param robot_description"/>
+    <include file="$(find arm_gazebo)/launch/arm_control.launch" />
+</launch>

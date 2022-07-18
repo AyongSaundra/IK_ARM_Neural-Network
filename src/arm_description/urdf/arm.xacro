@@ -1,0 +1,288 @@
+<?xml version="1.0"?>
+
+<robot name="arm_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/arm_robot</robotNamespace>
+            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+        </plugin>
+    </gazebo>
+
+    <link name="base">
+        <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://arm_description/meshes/thorBase.STL" />
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://arm_description/meshes/thorBase-col.STL" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.870"/>
+            <origin xyz="0.006 -0.000910  0.050" rpy="0.0 0.0 0.0"/>
+            <inertia ixx="0.002695" ixy="0.000005" ixz="-0.000177"
+                     iyy="0.002629" iyz="0.000027"
+                     izz="0.003357" />
+        </inertial>
+    </link>
+
+    <joint name="link1_joint" type="revolute">
+        <parent link="base"/>
+        <child link="link1"/>
+        <origin xyz="0.00 0.00 0.1" rpy="0.00 0.00 0.00"/>
+        <limit velocity="3.14" effort="10" lower="-3.14159" upper="3.14159"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+   <link name="link1">
+         <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://arm_description/meshes/thorArt1.STL" />
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://arm_description/meshes/thorArt1-col.STL" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="1.309"/>
+            <origin xyz="-0.000886 0.001  0.051" rpy="0.0 0.0 0.0"/>
+            <inertia ixx="0.004144" ixy="0.000001" ixz="-0.000023"
+                     iyy="0.004213" iyz="0.000019"
+                     izz="0.003581" />
+        </inertial>
+    </link>
+
+    <joint name="link2_joint" type="revolute">
+        <parent link="link1"/>
+        <child link="link2"/>
+        <origin xyz="0.00 0.00 0.1" rpy="0.00 0.00 0.00"/>
+        <limit velocity="3.14" effort="10" lower="-1.5708" upper="1.5708"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <link name="link2">
+         <visual>
+            <origin xyz="0.00 -0.035 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://arm_description/meshes/thorArt2.STL" />
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://arm_description/meshes/thorArt2-col.STL" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="1.281"/>
+            <origin xyz="0.000052 0.045  0.074" rpy="0.0 0.0 0.0"/>
+            <inertia ixx="0.001287" ixy="0.000000" ixz="0.000000"
+                     iyy="0.001291" iyz="0.000030"
+                     izz="0.000808" />
+        </inertial>
+    </link>
+
+    <joint name="link3_joint" type="revolute">
+        <parent link="link2"/>
+        <child link="link3"/>
+        <origin xyz="0.00 0.00 0.16" rpy="0.00 0.00 0.00"/> <!-- y 0.056 -->
+        <limit velocity="3.14" effort="10" lower="-1.5708" upper="1.5708"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    
+    <link name="link3">
+         <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://arm_description/meshes/thorArt3.STL" />
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://arm_description/meshes/thorArt3-col.STL" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.438124"/> <!-- 0.345 -->
+            <origin xyz="0.000 -0.006901  0.012738" rpy="0.0 0.0 0.0"/>
+            <inertia ixx="0.001287" ixy="0.000000" ixz="0.000000"
+                     iyy="0.001291" iyz="0.000030"
+                     izz="0.000808" />
+        </inertial>
+    </link>
+
+    <joint name="link4_joint" type="revolute">
+        <parent link="link3"/>
+        <child link="link4"/>
+        <origin xyz="0.00 0.00 0.089" rpy="0.00 0.00 0.00"/> <!-- y 0.053 -->
+        <limit velocity="3.14" effort="10" lower="-3.14159" upper="3.14159"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name="link4">
+         <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://arm_description/meshes/thorArt4.STL" />
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://arm_description/meshes/thorArt4-col.STL" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.405153"/>
+            <origin xyz="-0.000103 -0.000055  0.041496" rpy="0.0 0.0 0.0"/>
+            <inertia ixx="0.001630" ixy="0.000000" ixz="-0.000001"
+                     iyy="0.001593" iyz="0.000001"
+                     izz="0.000800" />
+        </inertial>
+    </link>
+
+    <joint name="link5_joint" type="revolute">
+        <parent link="link4"/>
+        <child link="link5"/>
+        <origin xyz="0.00 0.00 0.105" rpy="0.00 0.00 0.00"/> <!-- y -0.015 -->
+        <limit velocity="3.14" effort="10" lower="-1.5708" upper="1.5708"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <link name="link5">
+         <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://arm_description/meshes/thorArt5.STL" />
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://arm_description/meshes/thorArt5-col.STL" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.720429"/> <!-- 0.062511 -->
+            <origin xyz="0.0000 0.000010  -0.005650" rpy="0.0 0.0 0.0"/>
+            <inertia ixx="0.000313" ixy="0.000000" ixz="0.000000"
+                     iyy="0.000708" iyz="0.000000"
+                     izz="0.000507" />
+        </inertial>
+    </link> 
+
+    <joint name="link6_joint" type="revolute">
+        <parent link="link5"/>
+        <child link="link6"/>
+        <origin xyz="0.00 0.00 0.021000" rpy="0.00 0.00 0.00"/> <!-- y 0.015 --> <!-- z 0.021000 -->
+        <limit velocity="2.0" effort="10" lower="-3.14159" upper="3.14159"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name="link6">
+         <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://arm_description/meshes/thorArt6.STL" />
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://arm_description/meshes/thorArt6-col.STL" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.245211"/> <!-- 0.044015 -->
+            <origin xyz="0.000000 0.000000  0.000000" rpy="0.0 0.0 0.0"/>
+            <inertia ixx="0.000629" ixy="-0.000001" ixz="-0.000018"
+                     iyy="0.000675" iyz="-0.000002"
+                     izz="0.000127" />
+        </inertial>
+    </link>
+
+    <!--< 0.000082 0.015109  0.000000 joint name="end_effector_fixed_joint" type="fixed">
+        <parent link="link56"/>
+        <child link="end_effector_link"/>
+        <origin xyz="0.00 -0.02 0.56" rpy="0.00 0.00 0.00"/>
+    </joint>
+
+    <link name="end_effector_link">
+    </link>-->
+    
+    <transmission name="trans1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="link1_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor1">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="link2_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor2">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="link3_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor3">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans4">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="link4_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor4">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans5">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="link5_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor5">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans6">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="link6_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor6">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+</robot>

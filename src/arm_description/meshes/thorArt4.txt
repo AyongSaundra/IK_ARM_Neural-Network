@@ -1,0 +1,34 @@
+Mass properties of thorArt4
+     Configuration: Default
+     Coordinate system: Coordinate System1
+
+Density = 1020.000000 kilograms per cubic meter
+
+Mass = 0.405153 kilograms
+
+Volume = 0.000397 cubic meters
+
+Surface area = 0.175328 square meters
+
+Center of mass: ( meters )
+	X = -0.000103
+	Y = -0.000055
+	Z = 0.041496
+
+Principal axes of inertia and principal moments of inertia: ( kilograms * square meters )
+Taken at the center of mass.
+	 Ix = (-0.001791,  0.001036,  0.999998)   	Px = 0.000800
+	 Iy = (-0.000935, -0.999999,  0.001035)   	Py = 0.001593
+	 Iz = ( 0.999998, -0.000933,  0.001792)   	Pz = 0.001630
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the center of mass and aligned with the output coordinate system.
+	Lxx = 0.001630	Lxy = 0.000000	Lxz = -0.000001
+	Lyx = 0.000000	Lyy = 0.001593	Lyz = 0.000001
+	Lzx = -0.000001	Lzy = 0.000001	Lzz = 0.000800
+
+Moments of inertia: ( kilograms * square meters )
+Taken at the output coordinate system.
+	Ixx = 0.002327	Ixy = 0.000000	Ixz = -0.000003
+	Iyx = 0.000000	Iyy = 0.002290	Iyz = 0.000000
+	Izx = -0.000003	Izy = 0.000000	Izz = 0.000800
